@@ -1,5 +1,9 @@
 # API Deployment Example
 
+## About this project
+
+This project is an example of how to deploy a Rust API  to DigitalOcean using Docker and GitHub Actions. It is forked from a tutorial by letsgetrusty.
+
 ## Setup
 
 1. Make sure [Docker](https://www.docker.com/) is installed and running
