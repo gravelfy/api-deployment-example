@@ -67,8 +67,14 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Install sshpass
-      run: sudo apt-get install sshpass
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+
+    - name: SSH into Droplet
+      run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@${{ vars.DROPLET_IP }}
 
     - name: Copy docker-compose.yml to droplet
       run: sshpass -v -p ${{ secrets.DROPLET_PASSWORD }} scp -o StrictHostKeyChecking=no docker-compose.yml root@${{ vars.DROPLET_IP }}:~
