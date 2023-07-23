@@ -1,7 +1,7 @@
 version: '3'
 services:
   api:
-    image: gravelfy/rust-api-deployment-example
+    image: gravelfy/api-example
     environment:
       DATABASE_URL: "postgres://postgres:${POSTGRES_PASSWORD}@db:5432"
     build:
