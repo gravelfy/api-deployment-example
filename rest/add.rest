@@ -1,7 +1,0 @@
-POST http://0.0.0.0:3000/user
-Content-Type: application/json
-
-{
-  "name": "John",
-  "email": "John@Smith.com"
-}
